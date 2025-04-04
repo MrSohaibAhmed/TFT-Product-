@@ -1,6 +1,11 @@
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter()
+  function handleClick() {
+  router.push('./login')
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-8">
       <div className="max-w-2xl w-full text-center">
@@ -14,6 +19,7 @@ export default function Home() {
           <Button className="px-6 py-3 text-lg">Get Started</Button>
         </div>
       </div>
+      <Button className='mt-6' onClick={handleClick}>Login Page</Button>
     </main>
   );
 }
