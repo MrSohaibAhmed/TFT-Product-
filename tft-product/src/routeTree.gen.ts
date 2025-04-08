@@ -40,6 +40,9 @@ const AuthenticatedUsersIndexLazyImport = createFileRoute(
 const AuthenticatedTeachersIndexLazyImport = createFileRoute(
   '/_authenticated/teachers/',
 )()
+const AuthenticatedTeachersDataIndexLazyImport = createFileRoute(
+  '/_authenticated/teachers-data/',
+)()
 const AuthenticatedTasksIndexLazyImport = createFileRoute(
   '/_authenticated/tasks/',
 )()
@@ -193,6 +196,17 @@ const AuthenticatedTeachersIndexLazyRoute =
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any).lazy(() =>
     import('./routes/_authenticated/teachers/index.lazy').then((d) => d.Route),
+  )
+
+const AuthenticatedTeachersDataIndexLazyRoute =
+  AuthenticatedTeachersDataIndexLazyImport.update({
+    id: '/teachers-data/',
+    path: '/teachers-data/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/teachers-data/index.lazy').then(
+      (d) => d.Route,
+    ),
   )
 
 const AuthenticatedTasksIndexLazyRoute =
@@ -468,6 +482,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTasksIndexLazyImport
       parentRoute: typeof AuthenticatedRouteImport
     }
+    '/_authenticated/teachers-data/': {
+      id: '/_authenticated/teachers-data/'
+      path: '/teachers-data'
+      fullPath: '/teachers-data'
+      preLoaderRoute: typeof AuthenticatedTeachersDataIndexLazyImport
+      parentRoute: typeof AuthenticatedRouteImport
+    }
     '/_authenticated/teachers/': {
       id: '/_authenticated/teachers/'
       path: '/teachers'
@@ -521,6 +542,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedHelpCenterIndexLazyRoute: typeof AuthenticatedHelpCenterIndexLazyRoute
   AuthenticatedStudentsIndexLazyRoute: typeof AuthenticatedStudentsIndexLazyRoute
   AuthenticatedTasksIndexLazyRoute: typeof AuthenticatedTasksIndexLazyRoute
+  AuthenticatedTeachersDataIndexLazyRoute: typeof AuthenticatedTeachersDataIndexLazyRoute
   AuthenticatedTeachersIndexLazyRoute: typeof AuthenticatedTeachersIndexLazyRoute
   AuthenticatedUsersIndexLazyRoute: typeof AuthenticatedUsersIndexLazyRoute
 }
@@ -534,6 +556,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedHelpCenterIndexLazyRoute: AuthenticatedHelpCenterIndexLazyRoute,
   AuthenticatedStudentsIndexLazyRoute: AuthenticatedStudentsIndexLazyRoute,
   AuthenticatedTasksIndexLazyRoute: AuthenticatedTasksIndexLazyRoute,
+  AuthenticatedTeachersDataIndexLazyRoute:
+    AuthenticatedTeachersDataIndexLazyRoute,
   AuthenticatedTeachersIndexLazyRoute: AuthenticatedTeachersIndexLazyRoute,
   AuthenticatedUsersIndexLazyRoute: AuthenticatedUsersIndexLazyRoute,
 }
@@ -565,6 +589,7 @@ export interface FileRoutesByFullPath {
   '/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/students': typeof AuthenticatedStudentsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
+  '/teachers-data': typeof AuthenticatedTeachersDataIndexLazyRoute
   '/teachers': typeof AuthenticatedTeachersIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
@@ -591,6 +616,7 @@ export interface FileRoutesByTo {
   '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/students': typeof AuthenticatedStudentsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
+  '/teachers-data': typeof AuthenticatedTeachersDataIndexLazyRoute
   '/teachers': typeof AuthenticatedTeachersIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
@@ -621,6 +647,7 @@ export interface FileRoutesById {
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexLazyRoute
   '/_authenticated/students/': typeof AuthenticatedStudentsIndexLazyRoute
   '/_authenticated/tasks/': typeof AuthenticatedTasksIndexLazyRoute
+  '/_authenticated/teachers-data/': typeof AuthenticatedTeachersDataIndexLazyRoute
   '/_authenticated/teachers/': typeof AuthenticatedTeachersIndexLazyRoute
   '/_authenticated/users/': typeof AuthenticatedUsersIndexLazyRoute
 }
@@ -651,6 +678,7 @@ export interface FileRouteTypes {
     | '/settings/'
     | '/students'
     | '/tasks'
+    | '/teachers-data'
     | '/teachers'
     | '/users'
   fileRoutesByTo: FileRoutesByTo
@@ -676,6 +704,7 @@ export interface FileRouteTypes {
     | '/settings'
     | '/students'
     | '/tasks'
+    | '/teachers-data'
     | '/teachers'
     | '/users'
   id:
@@ -704,6 +733,7 @@ export interface FileRouteTypes {
     | '/_authenticated/settings/'
     | '/_authenticated/students/'
     | '/_authenticated/tasks/'
+    | '/_authenticated/teachers-data/'
     | '/_authenticated/teachers/'
     | '/_authenticated/users/'
   fileRoutesById: FileRoutesById
@@ -773,6 +803,7 @@ export const routeTree = rootRoute
         "/_authenticated/help-center/",
         "/_authenticated/students/",
         "/_authenticated/tasks/",
+        "/_authenticated/teachers-data/",
         "/_authenticated/teachers/",
         "/_authenticated/users/"
       ]
@@ -863,6 +894,10 @@ export const routeTree = rootRoute
     },
     "/_authenticated/tasks/": {
       "filePath": "_authenticated/tasks/index.lazy.tsx",
+      "parent": "/_authenticated"
+    },
+    "/_authenticated/teachers-data/": {
+      "filePath": "_authenticated/teachers-data/index.lazy.tsx",
       "parent": "/_authenticated"
     },
     "/_authenticated/teachers/": {
