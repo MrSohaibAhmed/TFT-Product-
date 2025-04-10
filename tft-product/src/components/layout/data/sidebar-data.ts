@@ -85,11 +85,11 @@ export const sidebarData: SidebarData = {
           url:'/teachers',
           icon: IconUsers,
         },
-        {
-          title: 'Teachers-Data',
-          url:'/teachers-data',
-          icon: IconUsers,
-        }
+        // {
+        //   title: 'Teachers',
+        //   url:'/teachers-data',
+        //   icon: IconUsers,
+        // }
       ],
     },
     {
