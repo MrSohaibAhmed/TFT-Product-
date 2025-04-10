@@ -96,7 +96,7 @@ export function UsersTable({ columns, data }: DataTableProps) {
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
+                <TableRow 
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
                   className='group/row'
