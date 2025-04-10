@@ -39,27 +39,27 @@ export const columns: ColumnDef<User>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-  {
-    accessorKey: 'username',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Teacher Name' />
-    ),
-    cell: ({ row }) => (
-      <LongText className='max-w-36'>{row.getValue('Teacher name')}</LongText>
-    ),
-    meta: {
-      className: cn(
-        'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
-        'bg-background transition-colors duration-200 group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted',
-        'sticky left-6 md:table-cell'
-      ),
-    },
-    enableHiding: false,
-  },
+  // {
+  //   accessorKey: 'username',
+  //   header: ({ column }) => (
+  //     <DataTableColumnHeader column={column} title='User Name' />
+  //   ),
+  //   // cell: ({ row }) => (
+  //   //   <LongText className='max-w-36'>{row.getValue('Teacher name')}</LongText>
+  //   // ),
+  //   meta: {
+  //     className: cn(
+  //       'drop-shadow-[0_1px_2px_rgb(0_0_0_/_0.1)] dark:drop-shadow-[0_1px_2px_rgb(255_255_255_/_0.1)] lg:drop-shadow-none',
+  //       'bg-background transition-colors duration-200 group-hover/row:bg-muted group-data-[state=selected]/row:bg-muted',
+  //       'sticky left-6 md:table-cell'
+  //     ),
+  //   },
+  //   enableHiding: false,
+  // },
   {
     id: 'fullName',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Name' />
+      <DataTableColumnHeader column={column} title='Teacher Name' />
     ),
     cell: ({ row }) => {
       const { firstName, lastName } = row.original
