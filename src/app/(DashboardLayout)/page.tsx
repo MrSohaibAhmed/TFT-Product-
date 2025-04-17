@@ -4,7 +4,7 @@ import PageContainer from '@/app/(DashboardLayout)/components/container/PageCont
 // components
 import ProfitExpenses from '@/app/(DashboardLayout)/components/dashboard/ProfitExpenses';
 import TrafficDistribution from '@/app/(DashboardLayout)/components/dashboard/TrafficDistribution';
-import UpcomingSchedules from '@/app/(DashboardLayout)/components/dashboard/UpcomingSchedules';
+// import UpcomingSchedules from '@/app/(DashboardLayout)/components/dashboard/UpcomingSchedules';
 import TopPayingClients from '@/app/(DashboardLayout)/components/dashboard/TopPayingClients';
 import Blog from '@/app/(DashboardLayout)/components/dashboard/Blog';
 import ProductSales from '@/app/(DashboardLayout)/components/dashboard/ProductSales';
@@ -38,17 +38,25 @@ const Dashboard = () => {
           <Grid
             size={{
               xs: 12,
-              lg: 4
+              lg: 4,
             }}>
-            <UpcomingSchedules />
+            {/* <UpcomingSchedules /> */}
           </Grid>
-          <Grid
+          {/* <Grid
             size={{
               xs: 12,
-              lg: 8
+              lg: 8,
             }}>
             <TopPayingClients />
           </Grid>
+           */}
+          <Grid
+            size={{
+              xs: 12,
+              lg: 16,
+            }}>
+              <TopPayingClients />
+            </Grid>
           <Grid size={12}>
             <Blog />
           </Grid>

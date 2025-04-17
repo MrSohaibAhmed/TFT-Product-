@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardContent, Typography, Stack, Box } from "@mui/material";
+import { Fullscreen } from "@mui/icons-material";
 
 type Props = {
   title?: string;
@@ -25,7 +26,7 @@ const DashboardCard = ({
   middlecontent,
 }: Props) => {
   return (
-    (<Card sx={{ padding: 0 }} elevation={9} variant={undefined}>
+    (<Card sx={{ padding: 0 ,backgroundColor:'#0D113B', color:'white',display:"flex", flexDirection:'column',width:'full' }} elevation={9} variant={undefined}>
       {cardheading ? (
         <CardContent>
           <Typography variant="h5">{headtitle}</Typography>
