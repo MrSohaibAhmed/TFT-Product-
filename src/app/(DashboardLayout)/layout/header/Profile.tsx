@@ -10,7 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-
+import { UserRound } from "lucide-react";
 import { IconListCheck, IconMail, IconUser } from "@tabler/icons-react";
 
 const Profile = () => {
@@ -23,7 +23,7 @@ const Profile = () => {
   };
 
   return (
-    (<Box>
+    <Box>
       <IconButton
         size="large"
         aria-label="show 11 new notifications"
@@ -37,14 +37,7 @@ const Profile = () => {
         }}
         onClick={handleClick2}
       >
-        <Avatar
-          src="/images/profile/user-1.jpg"
-          alt="image"
-          sx={{
-            width: 35,
-            height: 35,
-          }}
-        />
+        <UserRound size={26} color="white" />
       </IconButton>
       {/* ------------------------------------------- */}
       {/* Message Dropdown */}
@@ -85,8 +78,9 @@ const Profile = () => {
           sx={{
             mt: 1,
             py: 1,
-            px: 2
-          }}>
+            px: 2,
+          }}
+        >
           <Button
             href="/authentication/login"
             variant="outlined"
@@ -98,7 +92,7 @@ const Profile = () => {
           </Button>
         </Box>
       </Menu>
-    </Box>)
+    </Box>
   );
 };
 

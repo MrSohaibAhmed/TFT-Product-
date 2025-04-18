@@ -8,8 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 
-import { PanelLeft, Star, History, Bell, Search } from "lucide-react";
-
+import {
+  PanelLeft,
+  Star,
+  History,
+  Bell,
+  Search,
+  UserRound,
+} from "lucide-react";
+import Profile from "./Profile";
 const Topbar = () => {
   const AppBarStyled = styled(AppBar)(() => ({
     boxShadow: "none",
@@ -88,9 +95,9 @@ const Topbar = () => {
           <IconButton color="inherit">
             <Bell size={26} />
           </IconButton>
-          <IconButton color="inherit">
-            <PanelLeft size={26} />
-          </IconButton>
+
+          <Profile />
+          {/* <UserRound size={26} /> */}
         </Stack>
       </ToolbarStyled>
     </AppBarStyled>
