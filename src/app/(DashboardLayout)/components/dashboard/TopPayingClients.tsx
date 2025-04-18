@@ -12,10 +12,13 @@ import {
   Select,
   MenuItem,
   Paper,
+  MenuProps,
+  PaperProps,
 } from "@mui/material";
 import DashboardCard from "@/app/(DashboardLayout)//components/shared/DashboardCard";
 import TableContainer from "@mui/material/TableContainer";
 import BlankCard from "../shared/BlankCard";
+import { ThemeProvider } from "@emotion/react";
 
 const products = [
   {
@@ -63,12 +66,41 @@ const TopPayingClients = () => {
          <DashboardCard title="Assignments"  >
         <Box sx={{display:"flex",justifyContent:'space-between'}}>
         <Input placeholder="Filter Lines" sx={{color:'white', border:'', borderRadius:'5px', paddingLeft:'5px'}}></Input>
-          <Select defaultValue="" displayEmpty variant="standard"  sx={{height:'30px', width:'120px', borderRadius:'5px',  padding:'5px', color:'white', backgroundColor:'#ba25ee'}}>
-          <MenuItem value=""  sx={{display:'none'}} >Columns</MenuItem>
-          <MenuItem value="option1">Option 1</MenuItem>
-          <MenuItem value="option2">Option 2</MenuItem>
-          <MenuItem value="option3">Option 3</MenuItem>
-          </Select>
+<Select
+  defaultValue=""
+  displayEmpty
+  variant="standard"
+  sx={{
+    height: '30px',
+    width: '120px',
+    borderRadius: '5px',
+    padding: '5px',
+    color: 'white',
+    backgroundColor: '#ba25ee',
+  }}
+  MenuProps={{
+    PaperProps: {
+      sx: {
+        backgroundColor: '#ba25ee', // 💜 dropdown ka full background
+        color: 'white',              // text color
+        '& .MuiMenuItem-root': {
+          color: 'white',           // individual item text
+          '&:hover': {
+            backgroundColor: '#a020f0', // hover color
+          },
+        },
+      },
+    },
+  }}
+>
+  <MenuItem value="" sx={{ display: 'none' }}>
+    Columns
+  </MenuItem>
+  <MenuItem value="option1">Option 1</MenuItem>
+  <MenuItem value="option2">Option 2</MenuItem>
+  <MenuItem value="option3">Option 3</MenuItem>
+</Select>
+
         </Box>
       <Box sx={{ overflow: "auto" }}>
         <Box mt={2} sx={{ width: "100%", display: "table", tableLayout: "fixed" }}>
@@ -82,7 +114,7 @@ const TopPayingClients = () => {
                 <TableCell>
                   <Typography variant="subtitle2" sx={{
                     fontWeight: 600,
-                    color:'darkBlue'
+                    color:'white'
                   }}>
                     Tittle 
                   </Typography>
@@ -90,7 +122,7 @@ const TopPayingClients = () => {
                 <TableCell>
                   <Typography variant="subtitle2" sx={{
                     fontWeight: 600,
-                    color:'darkBlue'
+                    color:'white'
                   }}>
                     Instruction
                   </Typography>
@@ -98,7 +130,7 @@ const TopPayingClients = () => {
                 <TableCell>
                   <Typography variant="subtitle2" sx={{
                     fontWeight: 600,
-                    color:'darkBlue'
+                    color:'white'
                   }}>
                     Deadline
                   </Typography>
@@ -106,7 +138,7 @@ const TopPayingClients = () => {
                 <TableCell>
                   <Typography variant="subtitle2" sx={{
                     fontWeight: 600,
-                    color:'darkBlue'
+                    color:'white'
                   }}>
                     File Upload/URL
                   </Typography>
@@ -114,7 +146,7 @@ const TopPayingClients = () => {
                 <TableCell align="right">
                   <Typography variant="subtitle2" sx={{
                     fontWeight: 600,
-                    color:'darkBlue',
+                    color:'white',
                     marginRight:'50px'
                   }}>
                     Status
@@ -179,7 +211,7 @@ const TopPayingClients = () => {
                     <Chip
                       sx={{
                         px: "4px",
-                        backgroundColor: product.pbg,
+                        backgroundColor:"#0d113b",
                         // color: "#fff",
                         color:'white'
                       }}
