@@ -87,10 +87,10 @@ const SidebarItems = () => {
     const pathDirect = pathname;
 
     return (
-        <Box sx={{ px: "20px", overflowX: 'hidden' }}>
+        <Box sx={{ px: "20px", overflowX: 'hidden' , padding:'10px' , marginTop:'2rem' }}>
             <MUI_Sidebar width={"100%"} showProfile={false} themeColor={"#0085db"} themeSecondaryColor={'#0085db1a'}>
                 <Box sx={{ margin: "0 -24px" }}>
-                    <Logo img="/images/logos/logo-dark.svg" component={Link} href="/" >Spike</Logo>
+                    {/* <Logo img="/images/logos/logo-dark.svg" component={Link} href="/" >Spike</Logo> */}
                 </Box>
                 {renderMenuItems(Menuitems, pathDirect)}
             </MUI_Sidebar>
@@ -100,4 +100,3 @@ const SidebarItems = () => {
 };
 
 export default SidebarItems;
-
