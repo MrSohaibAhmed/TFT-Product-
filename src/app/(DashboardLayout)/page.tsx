@@ -39,7 +39,7 @@ const Dashboard = () => {
               <Grid item xs={12} md={4}>
                 <Paper >
                 <Paper sx={darkCardStyle}>
-  <TrafficDistribution />
+  <TrafficDistribution  />
 </Paper>
 
                 </Paper>

@@ -31,7 +31,7 @@ const NoticeBoard = () => {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Typography
           variant="h5"
-          sx={{ fontWeight: 'bold', color: '#6C63FF' }}
+          sx={{ fontWeight: 'bold', color: 'white' }}
         >
           Notice Board
         </Typography>
@@ -41,7 +41,8 @@ const NoticeBoard = () => {
             fontWeight: 'bold',
             backgroundColor: '#6C63FF',
             px: 2,
-            borderRadius: 4,
+            py: 0.4,
+            borderRadius: 1,
             color: 'white',
           }}
         >
@@ -53,7 +54,7 @@ const NoticeBoard = () => {
       <Card sx={{ backgroundColor: '#0d113b', border: 0.7, borderColor: 'white' }}>
         <CardContent>
           <Box display="flex" alignItems="center" gap={1}>
-            <WarningIcon color="warning" />
+            <WarningIcon sx={{ color: '#6C63FF' }} /> {/* Set the color to match the text */}
             <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#6C63FF' }}>
               Heads up!
             </Typography>
@@ -68,7 +69,7 @@ const NoticeBoard = () => {
       <Card sx={{ backgroundColor: '#0d113b', border: 0.7, borderColor: 'white' }}>
         <CardContent>
           <Box display="flex" alignItems="center" gap={1}>
-            <WarningIcon color="success" />
+            <WarningIcon sx={{ color: '#6C63FF' }} /> {/* Set the color to match the text */}
             <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#6C63FF' }}>
               Heads up!
             </Typography>

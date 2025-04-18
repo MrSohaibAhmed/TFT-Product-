@@ -61,7 +61,7 @@ const ProfitExpenses = () => {
       <Stack spacing={2} sx={{ flexGrow: 1, height: "100%", justifyContent: "space-between" }}>
         {/* Header */}
         <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Typography variant="subtitle2" color="#CBD5E1">
+          <Typography variant="h6" color="white">
             Progress Overview
           </Typography>
           <Chip
