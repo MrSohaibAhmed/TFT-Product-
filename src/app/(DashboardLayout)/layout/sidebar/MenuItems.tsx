@@ -25,13 +25,14 @@ const Menuitems: MenuitemsType[] = [
         id: uniqueId(),
         title: "Dashboard",
         icon: "screencast-2-line-duotone",
-        // href: "/",
+        href: "/",
     },
     {
         id: uniqueId(),
         title: "View Courses",
         icon: "chart-line-duotone",
         // href: "https://spike-nextjs-pro-main.vercel.app/dashboards/dashboard2",
+        href: "/viewcourses",
 
         // chip: "Pro",
     },
@@ -41,6 +42,7 @@ const Menuitems: MenuitemsType[] = [
         icon: "feed-line-duotone",
         // chip: "Pro",
         // href: "https://spike-nextjs-pro-main.vercel.app/frontend-pages/homepage",
+        href: "/assignment",
 
     //     children: [
     //         {
@@ -98,6 +100,7 @@ const Menuitems: MenuitemsType[] = [
         title: "Codespace",
         icon: "smile-circle-linear",
         // href: "/icons",
+        href: "/codespace",
     },
 
     {
@@ -105,6 +108,7 @@ const Menuitems: MenuitemsType[] = [
         title: "Profile Settings",
         icon: "tablet-line-duotone",
         // href: "/table",
+        href: "/profilesettings",
     },
 
     // {
