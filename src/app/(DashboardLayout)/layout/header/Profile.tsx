@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Icon } from "@iconify/react";
 
+import { UserRound } from "lucide-react";
 import { IconListCheck, IconMail, IconUser } from "@tabler/icons-react";
 
 const Profile = () => {
@@ -24,7 +25,7 @@ const Profile = () => {
   };
 
   return (
-    (<Box>
+    <Box>
       <IconButton
         size="large"
         aria-label="show 11 new notifications"
@@ -47,6 +48,7 @@ const Profile = () => {
           }}
         /> */}
         <Icon icon="mdi:account-circle" width="32" height="32" color="" />
+        {/* <UserRound size={26} color="white" /> */}
       </IconButton>
       {/* ------------------------------------------- */}
       {/* Message Dropdown */}
@@ -87,8 +89,9 @@ const Profile = () => {
           sx={{
             mt: 1,
             py: 1,
-            px: 2
-          }}>
+            px: 2,
+          }}
+        >
           <Button
             href="/authentication/login"
             variant="outlined"
@@ -100,7 +103,7 @@ const Profile = () => {
           </Button>
         </Box>
       </Menu>
-    </Box>)
+    </Box>
   );
 };
 
