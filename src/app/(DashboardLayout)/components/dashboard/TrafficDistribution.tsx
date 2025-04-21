@@ -1,166 +1,138 @@
-import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import { useTheme } from "@mui/material/styles";
-import { Grid2 as Grid, Stack, Typography, Avatar } from "@mui/material";
-import { IconArrowUpLeft } from "@tabler/icons-react";
+"use client";
 
-import DashboardCard from "@/app/(DashboardLayout)/components/shared/DashboardCard";
+import {
+  Box,
+  Stack,
+  Typography,
+  Avatar,
+  Chip,
+  Card,
+} from "@mui/material";
+import { PieChart } from "@mui/x-charts/PieChart";
 
-const TrafficDistribution = () => {
-  // chart color
-  const theme = useTheme();
-  const primary = theme.palette.primary.main;
-  const error = theme.palette.error.main;
-  const secondary = theme.palette.secondary.light;
-  const successlight = theme.palette.success.light;
+const CurrentCourseCard = () => {
+  const progress = 82;
 
-  // chart
-  const optionscolumnchart: any = {
-    chart: {
-      type: "donut",
-      fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
-      toolbar: {
-        show: false,
-      },
-      height: 170,
-    },
-    colors: [secondary, error, primary],
-    plotOptions: {
-      pie: {
-        startAngle: 0,
-        endAngle: 360,
-        donut: {
-          size: "75%",
-          background: "transparent",
-        },
-      },
-    },
-    tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
-      fillSeriesColor: false,
-    },
-    stroke: {
-      show: false,
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    legend: {
-      show: false,
-    },
-    responsive: [
-      {
-        breakpoint: 991,
-        options: {
-          chart: {
-            width: 120,
-          },
-        },
-      },
-    ],
-  };
-  const seriescolumnchart: any = [5368, 3500, 4106];
+  const pieData = [
+    { id: 0, value: progress, color: "#6C63FF" },       // Progress part
+    { id: 1, value: 100 - progress, color: "#e2e8f0" }, // Remaining part
+  ];
 
   return (
-    (<DashboardCard title="Traffic Distribution">
-      <Grid container spacing={3}>
-        {/* column */}
-        <Grid
-          size={{
-            xs: 6,
-            sm: 7
-          }}>
-          <Typography variant="h3" sx={{
-            fontWeight: "700"
-          }}>
-            $36,358
+    <Card
+      sx={{
+        width: 360,
+        height: 300,
+        backgroundColor: "#0d113b",
+        borderRadius: 2,
+        px: 3,
+        py: 2.5,
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Stack
+        spacing={2}
+        sx={{ flexGrow: 1, height: "100%", justifyContent: "space-between" }}
+      >
+        {/* Top Header */}
+        <Stack direction="row" justifyContent="space-between" alignItems="center">
+          <Typography variant="h6" color="white">
+            Current Courses
           </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={1}
+          <Chip
+            label="Enrolled last month"
+            size="small"
             sx={{
-              mt: 1,
-              alignItems: "center"
-            }}>
-            <Stack direction="row">
-              <Avatar sx={{ bgcolor: successlight, width: 21, height: 21 }}>
-                <IconArrowUpLeft width={18} color="#39B69A" />
-              </Avatar>
-              <Typography variant="subtitle2" sx={{
-                fontWeight: "600"
-              }}>
-                +9%
-              </Typography>
-            </Stack>
-            <Typography variant="subtitle2" color="textSecondary">
-              last year
-            </Typography>
-          </Stack>
-          <Stack spacing={3} direction="row" sx={{
-            mt: 3
-          }}>
-            <Stack direction="row" spacing={1} sx={{
-              alignItems: "center"
-            }}>
-              <Avatar
-                sx={{
-                  width: 9,
-                  height: 9,
-                  bgcolor: primary,
-                  svg: { display: "none" },
-                }}
-              ></Avatar>
-              <Typography
-                variant="subtitle2"
-                color="textSecondary"
-                sx={{
-                  fontSize: "12px"
-                }}
-              >
-                Oragnic
-              </Typography>
-            </Stack>
-            <Stack direction="row" spacing={1} sx={{
-              alignItems: "center"
-            }}>
-              <Avatar
-                sx={{
-                  width: 9,
-                  height: 9,
-                  bgcolor: error,
-                  svg: { display: "none" },
-                }}
-              ></Avatar>
-              <Typography
-                variant="subtitle2"
-                color="textSecondary"
-                sx={{
-                  fontSize: "12px"
-                }}
-              >
-                Refferal
-              </Typography>
-            </Stack>
-          </Stack>
-        </Grid>
-        {/* column */}
-        <Grid
-          size={{
-            xs: 6,
-            sm: 5
-          }}>
-          <Chart
-            options={optionscolumnchart}
-            series={seriescolumnchart}
-            type="donut"
-            width={"100%"}
-            height="150px"
+              background: "#6C63FF",
+              color: "#fff",
+              fontSize: "12px",
+              borderRadius: "6px",
+              fontWeight: 500,
+            }}
           />
-        </Grid>
-      </Grid>
-    </DashboardCard>)
+        </Stack>
+
+        {/* Course Info */}
+        <Box>
+          <Typography variant="h5" fontWeight={700} color="#A78BFA">
+            Programming Basics
+          </Typography>
+          <Typography variant="body2" color="#CBD5E1">
+            HTML, CSS, JS
+          </Typography>
+        </Box>
+
+        {/* Bottom: Mentor and Chart */}
+        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack
+  spacing={0.5}
+  sx={{ position: "relative", top: 20 }} // move down by 8px
+>
+  <Typography variant="h4" color="#A78BFA">
+    Mentor
+  </Typography>
+  <Stack direction="row" alignItems="center" spacing={1}>
+    <Avatar
+      src="/avatar.jpg"
+      alt="Dr Nabeel Sabir"
+      sx={{ width: 32, height: 32 }}
+    />
+    <Typography variant="subtitle2">Dr Nabeel Sabir</Typography>
+  </Stack>
+</Stack>
+
+
+          {/* Larger Pie Chart */}
+          <Box sx={{ position: "relative", width: 160, height: 180, mt: -6 }}>
+            <PieChart
+              series={[
+                {
+                  data: pieData,
+                  innerRadius: 64,
+                  outerRadius: 80,
+                  paddingAngle: 0,
+                  cornerRadius: 0,
+                  startAngle: -90,
+                  endAngle: 270,
+                },
+              ]}
+              width={160}
+              height={180}
+              slotProps={{
+                pieArc: {
+                  style: {
+                    stroke: "none",
+                  },
+                },
+              }}
+            />
+            {/* Centered Label */}
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                textAlign: "center",
+              }}
+            >
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", color: "#6C63FF", fontSize: "24px" }}
+              >
+                {progress}%
+              </Typography>
+              <Typography variant="caption" sx={{ color: "#CBD5E1" }}>
+                In Progress
+              </Typography>
+            </Box>
+          </Box>
+        </Stack>
+      </Stack>
+    </Card>
   );
 };
 
-export default TrafficDistribution;
+export default CurrentCourseCard;

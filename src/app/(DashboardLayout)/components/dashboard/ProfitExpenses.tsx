@@ -1,147 +1,124 @@
 import React from "react";
-import { MenuItem, Box, IconButton, Menu } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import DashboardCard from "@/app/(DashboardLayout)/components/shared/DashboardCard";
+import { Box, Stack, Typography, Chip, useTheme, Card } from "@mui/material";
 import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const options = [
-  "Action",
-  "Another Action",
-  "Something else here",
-];
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const ProfitExpenses = () => {
-  // menu
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  // chart color
   const theme = useTheme();
-  const primary = theme.palette.primary.main;
-  const secondary = theme.palette.error.main;
 
-  // chart
   const optionscolumnchart: any = {
     chart: {
       type: "bar",
-      fontFamily: "'Plus Jakarta Sans', sans-serif;",
-      foreColor: "#adb0bb",
-      toolbar: {
-        show: true,
-      },
-      height: 350,
+      toolbar: { show: false },
+      sparkline: { enabled: true },
+      background: "#0d113b", // set chart background
     },
-    colors: [primary, secondary],
+    colors: ["#7C3AED"],
     plotOptions: {
       bar: {
-        horizontal: false,
-        barHeight: "60%",
-        columnWidth: "42%",
         borderRadius: 6,
+        columnWidth: "50%",
       },
-    },
-
-    stroke: {
-      show: true,
-      width: 5,
-      lineCap: "butt",
-      colors: ["transparent"],
     },
     dataLabels: {
       enabled: false,
     },
-    legend: {
-      show: false,
+    xaxis: {
+      categories: ["", "", "", "", "", "", ""],
+      labels: { show: false },
+      axisTicks: { show: false },
+      axisBorder: { show: false },
     },
-    grid: {
-      borderColor: "rgba(0,0,0,0.1)",
-      strokeDashArray: 3,
-      xaxis: {
-        lines: {
-          show: false,
+    yaxis: {
+      labels: {
+        style: {
+          colors: "#ffffff", // y-axis text color
         },
       },
     },
-    yaxis: {
-      tickAmount: 4,
-    },
-    xaxis: {
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      axisBorder: {
-        show: false,
-      },
+    grid: {
+      show: false,
     },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
-      fillSeriesColor: false,
+      theme: "dark",
+    },
+    legend: {
+      labels: {
+        colors: "#ffffff", // legend text color
+      },
     },
   };
+
   const seriescolumnchart: any = [
     {
-      name: "Pixel ",
-      data: [9, 5, 3, 7, 5, 10, 3],
-    },
-    {
-      name: "Ample ",
-      data: [6, 3, 9, 5, 4, 6, 4],
+      name: "Performance",
+      data: [2, 5, 5, 4, 5, 6, 6],
     },
   ];
 
   return (
-    <DashboardCard
-      title="Profit & Expenses"
-      action={
-        <>
-          <IconButton
-            aria-label="more"
-            id="long-button"
-            aria-controls={open ? "long-menu" : undefined}
-            aria-expanded={open ? "true" : undefined}
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            <MoreVertIcon />
-          </IconButton>
-          <Menu
-            id="long-menu"
-            MenuListProps={{
-              "aria-labelledby": "long-button",
-            }}
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-          >
-            {options.map((option) => (
-              <MenuItem
-                key={option}
-                selected={option === "Pyxis"}
-                onClick={handleClose}
-              >
-                {option}
-              </MenuItem>
-            ))}
-          </Menu>
-        </>
-      }
+    <Card
+      sx={{
+        width: 360,
+        height: 300,
+        backgroundColor: "#0d113b",
+        borderRadius: 2,
+        px: 3,
+        py: 2.5,
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
-      <Box className="rounded-bars">
-        <Chart
-          options={optionscolumnchart}
-          series={seriescolumnchart}
-          type="bar"
-          width={"100%"}
-          height="350px"
-        />
-      </Box>
-    </DashboardCard>
+      <Stack
+        spacing={2}
+        sx={{ flexGrow: 1, height: "100%", justifyContent: "space-between" }}
+      >
+        {/* Header */}
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Typography variant="h6" color="white">
+            Progress Overview
+          </Typography>
+          <Chip
+            label="Last week"
+            size="small"
+            sx={{
+              background: "#6C63FF",
+              color: "#fff",
+              fontSize: "12px",
+              borderRadius: "6px",
+              fontWeight: 500,
+              height: "24px",
+            }}
+          />
+        </Stack>
+
+        {/* Percentage */}
+        <Box>
+          <Typography variant="h4" fontWeight={700} color="#8B5CF6">
+            89%
+          </Typography>
+          <Typography variant="body2" color="#CBD5E1">
+            Overall Performance
+          </Typography>
+        </Box>
+
+        {/* Chart */}
+        <Box sx={{ flexGrow: 1 }}>
+          <Chart
+            options={optionscolumnchart}
+            series={seriescolumnchart}
+            type="bar"
+            height="100%"
+          />
+        </Box>
+      </Stack>
+    </Card>
   );
 };
 
