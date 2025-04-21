@@ -3,3 +3,7 @@
 .MuiTypography-root, .MuiListSubheader-root, .MuiChip-label {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
+
+#input1::placeholder{
+    color: white;
+}

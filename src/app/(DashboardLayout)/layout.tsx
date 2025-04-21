@@ -3,10 +3,11 @@ import { styled, Container, Box } from "@mui/material";
 import React, { useState } from "react";
 import Header from "@/app/(DashboardLayout)/layout/header/Header";
 import Sidebar from "@/app/(DashboardLayout)/layout/sidebar/Sidebar";
-
+import TopPayingClients from "./components/dashboard/TopPayingClients";
 import Topbar from "./layout/header/Topbar";
 import theme from "@/utils/theme";
 import Footer from "./layout/footer/page";
+import page from "./sample-form/page";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -24,7 +25,6 @@ const PageWrapper = styled("div")(() => ({
 
 
 
-
 export default function RootLayout({
   children,
 }: {
@@ -32,6 +32,8 @@ export default function RootLayout({
 }) {
 
   return (
+    
+
     <MainWrapper className="mainwrapper">
 
       <PageWrapper className="page-wrapper">
