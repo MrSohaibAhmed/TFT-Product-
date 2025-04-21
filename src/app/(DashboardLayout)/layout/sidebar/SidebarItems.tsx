@@ -2,7 +2,6 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { Box } from "@mui/material";
 import {
-    Logo,
     Sidebar as MUI_Sidebar,
     Menu,
     MenuItem,
@@ -14,26 +13,22 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { Upgrade } from "./Updrade";
 import theme from "@/utils/theme";
+import Profile from "../header/Profile";
 
 const renderMenuItems = (items: any[], pathDirect: string) => {
-
-
     const primary = theme.palette.primary.light;
+
     return items.map((item) => {
         if (item.subheader) {
-            // Display Subheader
             return (
                 <Box sx={{ margin: "0 -24px" }} key={item.subheader}>
-                    <Menu
-                        subHeading={item.subheader}
-                        key={item.subheader}
-
-                    ><></></Menu>
+                    <Menu subHeading={item.subheader} key={item.subheader}>
+                        <></>
+                    </Menu>
                 </Box>
             );
         }
 
-        //If the item has children (submenu)
         if (item.children) {
             return (
                 <Submenu
@@ -52,8 +47,6 @@ const renderMenuItems = (items: any[], pathDirect: string) => {
             );
         }
 
-        // If the item has no children, render a MenuItem
-
         return (
             <MenuItem
                 key={item.id}
@@ -70,14 +63,12 @@ const renderMenuItems = (items: any[], pathDirect: string) => {
                 target={item.href && item.href.startsWith("https") ? "_blank" : "_self"}
                 badge={item.chip ? true : false}
                 badgeContent={item.chip || ""}
-                badgeColor='secondary'
+                badgeColor="secondary"
                 badgeTextColor="#0085db"
                 disabled={item.disabled}
             >
                 {item.title}
             </MenuItem>
-
-
         );
     });
 };
@@ -87,14 +78,35 @@ const SidebarItems = () => {
     const pathDirect = pathname;
 
     return (
-        <Box sx={{ px: "20px", overflowX: 'hidden' , padding:'10px' , marginTop:'2rem' }}>
-            <MUI_Sidebar width={"100%"} showProfile={false} themeColor={"#0085db"} themeSecondaryColor={'#0085db1a'}>
+        <Box sx={{ px: "20px", overflowX: "hidden", padding: "10px", marginTop: "2rem" }}>
+            <MUI_Sidebar
+                width={"100%"}
+                showProfile={false}
+                themeColor={"#0085db"}
+                themeSecondaryColor={"#0085db1a"}
+            >
                 <Box sx={{ margin: "0 -24px" }}>
                     {/* <Logo img="/images/logos/logo-dark.svg" component={Link} href="/" >Spike</Logo> */}
                 </Box>
                 {renderMenuItems(Menuitems, pathDirect)}
             </MUI_Sidebar>
+
             <Upgrade />
+
+            {/* Profile Section at Bottom */}
+            <Box sx={{ display: "flex", alignItems: "center", mt: '100%' }}>
+                <Profile/>
+                <span
+                    style={{
+                    
+                        marginLeft: "10px",
+                        fontWeight: 500,
+                        fontSize: "14px",
+                    }}
+                >
+                    Student
+                </span>
+            </Box>
         </Box>
     );
 };

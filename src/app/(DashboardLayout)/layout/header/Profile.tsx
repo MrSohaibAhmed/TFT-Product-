@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { Icon } from "@iconify/react";
 
 import { IconListCheck, IconMail, IconUser } from "@tabler/icons-react";
 
@@ -37,14 +38,15 @@ const Profile = () => {
         }}
         onClick={handleClick2}
       >
-        <Avatar
+        {/* <Avatar
           src="/images/profile/user-1.jpg"
           alt="image"
           sx={{
             width: 35,
             height: 35,
           }}
-        />
+        /> */}
+        <Icon icon="mdi:account-circle" width="32" height="32" color="" />
       </IconButton>
       {/* ------------------------------------------- */}
       {/* Message Dropdown */}
