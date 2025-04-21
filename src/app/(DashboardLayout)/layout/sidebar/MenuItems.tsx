@@ -1177,7 +1177,7 @@ const Menuitems: MenuitemsType[] = [
         id: uniqueId(),
         title: "Dashboard",
         icon: "widget-4-outline",
-        href: "/dashboard",
+        href: "/",
     },
     {
         id: uniqueId(),
