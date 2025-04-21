@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Box, Stack, Typography, Chip, useTheme, Card } from "@mui/material";
 import dynamic from "next/dynamic";
@@ -12,7 +11,8 @@ const ProfitExpenses = () => {
     chart: {
       type: "bar",
       toolbar: { show: false },
-      sparkline: { enabled: true }, // hides grid, axes
+      sparkline: { enabled: true },
+      background: "#0d113b", // set chart background
     },
     colors: ["#7C3AED"],
     plotOptions: {
@@ -30,10 +30,23 @@ const ProfitExpenses = () => {
       axisTicks: { show: false },
       axisBorder: { show: false },
     },
-    yaxis: { show: false },
-    grid: { show: false },
+    yaxis: {
+      labels: {
+        style: {
+          colors: "#ffffff", // y-axis text color
+        },
+      },
+    },
+    grid: {
+      show: false,
+    },
     tooltip: {
-      theme: theme.palette.mode === "dark" ? "dark" : "light",
+      theme: "dark",
+    },
+    legend: {
+      labels: {
+        colors: "#ffffff", // legend text color
+      },
     },
   };
 
@@ -43,12 +56,12 @@ const ProfitExpenses = () => {
       data: [2, 5, 5, 4, 5, 6, 6],
     },
   ];
+
   return (
     <Card
       sx={{
         width: 360,
         height: 300,
-        // border: 0.7, borderColor: 'white' ,
         backgroundColor: "#0d113b",
         borderRadius: 2,
         px: 3,
@@ -58,9 +71,16 @@ const ProfitExpenses = () => {
         flexDirection: "column",
       }}
     >
-      <Stack spacing={2} sx={{ flexGrow: 1, height: "100%", justifyContent: "space-between" }}>
+      <Stack
+        spacing={2}
+        sx={{ flexGrow: 1, height: "100%", justifyContent: "space-between" }}
+      >
         {/* Header */}
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Typography variant="h6" color="white">
             Progress Overview
           </Typography>
@@ -100,8 +120,6 @@ const ProfitExpenses = () => {
       </Stack>
     </Card>
   );
-
-
 };
 
 export default ProfitExpenses;
