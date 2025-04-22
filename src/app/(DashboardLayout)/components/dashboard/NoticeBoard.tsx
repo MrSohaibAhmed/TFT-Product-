@@ -3,13 +3,14 @@ import {
   Box,
   Typography,
   Card,
+  Chip,
   CardContent,
   Paper
 } from '@mui/material';
 import {
   Warning as WarningIcon
 } from '@mui/icons-material';
-
+// import Chip from '@mui/material';
 const NoticeBoard = () => {
   return (
     <Paper
@@ -28,26 +29,24 @@ const NoticeBoard = () => {
       }}
     >
       {/* Header */}
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+      <Box display="flex" justifyContent="space-between" alignItems="center" sx={{pt:0.1}}>
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{ fontWeight: 'bold', color: 'white' }}
         >
           Notice Board
         </Typography>
-        <Typography
-          variant="subtitle1"
-          sx={{
-            fontWeight: 'bold',
-            backgroundColor: '#6C63FF',
-            px: 2,
-            py: 0.4,
-            borderRadius: 1,
-            color: 'white',
-          }}
-        >
-          Today
-        </Typography>
+        <Chip
+            label="Today"
+            size="small"
+            sx={{
+              background: "#6C63FF",
+              color: "#fff",
+              fontSize: "12px",
+              borderRadius: "6px",
+              fontWeight: 500,
+            }}
+          />
       </Box>
 
       {/* First Notice */}

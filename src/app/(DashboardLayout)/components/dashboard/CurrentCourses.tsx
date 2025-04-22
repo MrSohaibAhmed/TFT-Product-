@@ -14,7 +14,7 @@ const CurrentCourseCard = () => {
   const progress = 82;
 
   const pieData = [
-    { id: 0, value: progress, color: "#6C63FF" },       // Progress part
+    { id: 0, value: progress, color: "#7C3AED" },       // Progress part
     { id: 1, value: 100 - progress, color: "#e2e8f0" }, // Remaining part
   ];
 
