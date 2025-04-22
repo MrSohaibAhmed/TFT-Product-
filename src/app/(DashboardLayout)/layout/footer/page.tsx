@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <Box sx={{ pt: 6, textAlign: "center" }}>
-      <Typography variant="h6" fontWeight={400} color="textSecondary">
+      {/* <Typography variant="h6" fontWeight={400} color="textSecondary">
         Design and Developed by{" "}
         <Typography component="span" sx={{ a: { color: "primary.main" } }}>
           <Link
@@ -16,7 +16,7 @@ const Footer = () => {
             Wrappixel.com
           </Link>{" "}
         </Typography>{" "}
-      </Typography>
+      </Typography> */}
     </Box>
   );
 };
