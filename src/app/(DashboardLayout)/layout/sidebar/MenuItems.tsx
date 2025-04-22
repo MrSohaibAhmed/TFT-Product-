@@ -1177,6 +1177,7 @@ const Menuitems: MenuitemsType[] = [
         id: uniqueId(),
         title: "Dashboard",
         icon: "widget-4-outline",
+        bgcolor:'#0d113b',
         href: "/",
     },
     {
@@ -1206,3 +1207,5 @@ const Menuitems: MenuitemsType[] = [
 ];
 
 export default Menuitems;
+
+
