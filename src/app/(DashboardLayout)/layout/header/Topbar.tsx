@@ -6,17 +6,13 @@ import {
   InputBase,
   IconButton,
   Typography,
+  Box,
 } from "@mui/material";
-
-import {
-  PanelLeft,
-  Star,
-  History,
-  Bell,
-  Search,
-  UserRound,
-} from "lucide-react";
+import { useEffect, useState, useContext } from "react";
+import { DashboardContext } from "@/app/context/DashboardContext";
+import { PanelLeft, Star, History, Bell, Search } from "lucide-react";
 import Profile from "./Profile";
+
 const Topbar = () => {
   const AppBarStyled = styled(AppBar)(() => ({
     boxShadow: "none",
@@ -52,36 +48,85 @@ const Topbar = () => {
     fontWeight: 500,
   }));
 
+  const [_height, setHeight] = useState("0px");
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setHeight("0px");
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const { isMobileSidebar, setIsMobileSidebar } = useContext(DashboardContext);
+
   return (
     <AppBarStyled position="sticky">
       <ToolbarStyled>
         <Stack direction="row" spacing={10} alignItems="center">
           <img
-            src="\images\logos\TFTLogo.png"
+            src="/images/logos/TFTLogo.png"
             alt="TFT-Logo"
             style={{ height: "35px", width: "auto" }}
           />
           <Stack direction="row" spacing={1} alignItems="center" sx={{ ml: 3 }}>
-            <IconButton color="inherit">
-              <PanelLeft size={26} />
+            <IconButton
+              color="inherit"
+              onClick={() => setIsMobileSidebar(!isMobileSidebar)}
+              sx={{
+                display: {
+                  xl: "none",
+                  lg: "none",
+                },
+                cursor: "pointer",
+              }}
+            >
+              <Box sx={{ mt: "6px" }}>
+                <PanelLeft size={26} />
+              </Box>
             </IconButton>
             <IconButton color="inherit">
               <Star size={26} />
             </IconButton>
-            <Typography
-              variant="body2"
-              sx={{ color: "#cbd5e1", fontSize: "15px", cursor: "pointer" }}
+            <Stack
+              direction="row"
+              spacing={1}
+              alignItems="center"
+              sx={{ flexWrap: "nowrap" }}
             >
-              Dashboard
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#cbd5e1" }}>
-              /
-            </Typography>
-            <PurpleLink sx={{ fontSize: "15px" }}>Student Portal</PurpleLink>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#fff",
+                  fontSize: "15px",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Dashboard
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#cbd5e1" }}>
+                /
+              </Typography>
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "15px",
+                  mr: 3,
+                  color: "#BA25EE",
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Student Portal
+              </Typography>
+            </Stack>
           </Stack>
         </Stack>
 
-        <Stack direction="row" spacing={1} alignItems="center">
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ ml: 3 }}>
           <SearchBox>
             <Search size={24} style={{ marginRight: 8 }} />
             <InputBase
@@ -95,9 +140,7 @@ const Topbar = () => {
           <IconButton color="inherit">
             <Bell size={26} />
           </IconButton>
-
           <Profile />
-          {/* <UserRound size={26} /> */}
         </Stack>
       </ToolbarStyled>
     </AppBarStyled>
