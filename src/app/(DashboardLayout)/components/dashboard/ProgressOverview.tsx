@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const ProfitExpenses = () => {
+const ProgressOveriew = () => {
   const theme = useTheme();
 
   const optionscolumnchart: any = {
@@ -122,4 +122,4 @@ const ProfitExpenses = () => {
   );
 };
 
-export default ProfitExpenses;
+export default ProgressOveriew;

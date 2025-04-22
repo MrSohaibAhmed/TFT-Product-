@@ -83,17 +83,17 @@ const TopPayingClients = () => {
               borderRadius: "5px",
               padding: "5px",
               color: "white",
-              backgroundColor: "#ba25ee",
+              backgroundColor: "#6c63ff",
             }}
             MenuProps={{
               PaperProps: {
                 sx: {
-                  backgroundColor: "#ba25ee", // 💜 dropdown ka full background
+                  backgroundColor: "#6c63ff", // 💜 dropdown ka full background
                   color: "white", // text color
                   "& .MuiMenuItem-root": {
                     color: "white", // individual item text
                     "&:hover": {
-                      backgroundColor: "#a020f0", // hover color
+                      backgroundColor: "#6c63ff", // hover color
                     },
                   },
                 },
