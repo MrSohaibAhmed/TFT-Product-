@@ -8,7 +8,7 @@ const Footer = () => {
 
             {/* <Typography variant="h6" fontWeight={400} color='textSecondary'>
 
-                Design and Developed by{" "}
+                Design and Developed by by{" "}
                 <Typography component="span" sx={{ 'a': { color: "primary.main" } }}>
                     <Link href="https://www.wrappixel.com" target="blank" style={{ textDecoration: "underline", fontSize: "1rem" }}>
                         Wrappixel.com
