@@ -1,10 +1,12 @@
 'use client'
-function View_Cources(){
+
+import CardsComponent from "../components/viewCoursesCards/CardsComponent"
+
+function View_Courses(){
     return (
         <>
-        <div>
-            this is view courses
-            </div></>
+        <CardsComponent/>
+        </>
     )
 }
-export default View_Cources
+export default View_Courses
