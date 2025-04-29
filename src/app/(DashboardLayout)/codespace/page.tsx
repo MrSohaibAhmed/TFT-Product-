@@ -2,7 +2,15 @@
 function Codespace(){
     return (
         <>
-        <div>
+        <div style={{
+            // background: 'red',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+        }
+        }>
             this is codespace page
             </div></>
     )

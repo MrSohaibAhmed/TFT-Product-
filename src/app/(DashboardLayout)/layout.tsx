@@ -7,12 +7,13 @@ import TopPayingClients from "./components/dashboard/TopPayingClients";
 import Topbar from "./layout/header/Topbar";
 import theme from "@/utils/theme";
 import Footer from "./layout/footer/page";
-import page from "./sample-form/page";
+// import page from "./sample-form/page";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
   minHeight: "100vh",
   width: "100%",
+  
 }));
 
 const PageWrapper = styled("div")(() => ({
@@ -20,7 +21,7 @@ const PageWrapper = styled("div")(() => ({
   flexGrow: 1,
   paddingBottom: "25px",
   flexDirection: "column",
-  backgroundColor: "transparent",
+  backgroundColor: "#050817",
 }));
 
 
