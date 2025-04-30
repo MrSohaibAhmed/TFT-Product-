@@ -70,6 +70,7 @@ const renderMenuItems = (items: any[], pathDirect: string) => {
                 icon={
                     <Box
                         sx={{
+                            
                             overflowY: "hidden",
                             backgroundColor: "#6c63ff",
                             padding: "6px",
@@ -113,7 +114,7 @@ const SidebarItems = () => {
                 bgcolor: "#0d113b",
                 px: "20px",
                 overflowY: "hidden",
-                height: "89vh",
+                height: "100vh",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -137,8 +138,7 @@ const SidebarItems = () => {
                 sx={{
                     display: "flex",
                     alignItems: "center",
-                    marginBottom: "0.5rem",
-
+                    marginBottom: "5rem",
                     overflowY: "hidden"
                 }}
             >
