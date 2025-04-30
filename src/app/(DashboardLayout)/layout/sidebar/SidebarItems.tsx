@@ -45,8 +45,8 @@ const renderMenuItems = (items: any[], pathDirect: string) => {
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
-                                width: 32,
-                                height: 32,
+
+
                                 color: "white",
                             }}
                         >
@@ -70,15 +70,14 @@ const renderMenuItems = (items: any[], pathDirect: string) => {
                 icon={
                     <Box
                         sx={{
-                            overflowY:"hidden",
+                            overflowY: "hidden",
                             backgroundColor: "#6c63ff",
                             padding: "6px",
                             borderRadius: "8px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            width: 32,
-                            height: 32,
+
                             color: "white",
                         }}
                     >
@@ -114,7 +113,7 @@ const SidebarItems = () => {
                 bgcolor: "#0d113b",
                 px: "20px",
                 overflowY: "hidden",
-                height: "100dvh",
+                height: "89vh",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -138,8 +137,9 @@ const SidebarItems = () => {
                 sx={{
                     display: "flex",
                     alignItems: "center",
-                    marginBottom: "5rem",
-                    overflowY:"hidden"
+                    marginBottom: "0.5rem",
+
+                    overflowY: "hidden"
                 }}
             >
                 <Profile />

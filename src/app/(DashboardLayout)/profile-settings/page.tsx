@@ -1,9 +1,17 @@
 'use client'
-function Profile_Setting(){
+function Profile_Setting() {
     return (
         <>
-        <div>
-            this is profile setting page
+            <div style={{
+                // background: 'red',
+                height: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                color: 'white',
+            }
+            }>
+                this is profile setting page
             </div></>
     )
 }

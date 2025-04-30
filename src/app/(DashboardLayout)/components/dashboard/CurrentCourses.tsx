@@ -38,7 +38,7 @@ const CurrentCourseCard = () => {
       >
         {/* Top Header */}
         <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Typography variant="h6" color="white">
+          <Typography variant="h6" color="black">
             Current Courses
           </Typography>
           <Chip
