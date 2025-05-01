@@ -1,85 +1,150 @@
-
-import { Box, AppBar, Toolbar, styled, Stack, Button } from '@mui/material';
-
-import { IconLifebuoy, IconGift, IconBriefcase } from '@tabler/icons-react';
-import { Typography } from '@mui/material';
-import Link from "next/link";
-import LivePreviewDropdown from './LivePreviewDropdown';
-import BuyNowDropdown from './BuyNowDropdown';
-
-
-
+import {
+  AppBar,
+  Toolbar,
+  styled,
+  Stack,
+  InputBase,
+  IconButton,
+  Typography,
+  Box,
+} from "@mui/material";
+import { useEffect, useState, useContext } from "react";
+import { DashboardContext } from "@/app/context/DashboardContext";
+import { PanelLeft, Star, History, Bell, Search } from "lucide-react";
+import Profile from "./Profile";
 
 const Topbar = () => {
+  const AppBarStyled = styled(AppBar)(() => ({
+    boxShadow: "none",
+    background: "#0D113B",
+    justifyContent: "center",
+    backdropFilter: "blur(6px)",
+    padding: "0 10px",
+  }));
 
+  const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
+    width: "100%",
+    color: theme.palette.common.white,
+    justifyContent: "space-between",
+    minHeight: "65px",
+  }));
 
-    const AppBarStyled = styled(AppBar)(({ theme }) => ({
-        boxShadow: 'none',
-        background: theme.palette.grey[600],
-        justifyContent: 'center',
-        backdropFilter: 'blur(4px)',
-        [theme.breakpoints.up('lg')]: {
-            minHeight: '61px',
-        },
-    }));
-    const ToolbarStyled = styled(Toolbar)(({ theme }) => ({
-        width: '100%',
-        color: theme.palette.text.secondary,
-    }));
+  const SearchBox = styled("div")(() => ({
+    position: "relative",
+    borderRadius: "10px",
+    border: "1px solid white",
+    backgroundColor: "#1e293b",
+    marginLeft: 0,
+    width: "200px",
+    display: "flex",
+    alignItems: "center",
+    padding: "2px 12px",
+    color: "#fff",
+  }));
 
-    const GhostButton = styled(Button)(({ theme }) => ({
-        color: theme.palette.primary.contrastText,
-        backgroundColor: "#ffffff00",
-        boxShadow: "none",
-        borderRadius: "999px",
-        fontWeight: 400,
-        '&:hover': {
-            backgroundColor: theme.palette.primary.main,
-        },
-        "& .MuiButton-startIcon": {
-            marginRight: "4px",
-        }
-    }));
+  const PurpleLink = styled("span")(() => ({
+    color: "#BA25EE",
+    cursor: "pointer",
+    fontWeight: 500,
+  }));
 
-    return (
-        (<AppBarStyled position="sticky" color="default">
-            <ToolbarStyled sx={{ flexWrap: "wrap" }} >
-                <Stack
-                    spacing={{ xs: 1, sm: 8 }}
-                    direction="row"
-                    useFlexGap
-                    sx={{ flexWrap: 'wrap', justifyContent: { xs: "center", lg: "between" }, paddingY: { xs: "8px", lg: "0px" }, width: { xs: "100%", lg: "auto" } }}
-                >
-                    <img src='/images/logos/logo-wrappixel.svg' alt="logo" />
-                    <Stack spacing={1} direction="row" sx={{ flexWrap: 'wrap', display: { xs: "none", lg: "flex" } }} >
-                        <Box sx={{ display: "flex", alignItems: "center" }} ><Link href="https://support.wrappixel.com/" style={{ display: "flex", height: "fit-content" }} target='_blank' ><GhostButton startIcon={<IconLifebuoy size={18} />} variant="contained">Support</GhostButton></Link></Box>
-                        <Box sx={{ display: "flex", alignItems: "center" }} ><Link href="https://www.wrappixel.com/" style={{ display: "flex", height: "fit-content" }} target='_blank'  ><GhostButton startIcon={<IconGift size={18} />} variant="contained">Templates</GhostButton></Link></Box>
-                        <Box sx={{ display: "flex", alignItems: "center" }} ><Link href="https://www.wrappixel.com/hire-us/" style={{ display: "flex", height: "fit-content" }} target='_blank' ><GhostButton startIcon={<IconBriefcase size={18} />} variant="contained">Hire us</GhostButton></Link></Box>
-                    </Stack>
+  const [_height, setHeight] = useState("0px");
 
-                </Stack>
-                <Box sx={{
-                    flexGrow: 1
-                }} />
-                <Stack
-                    spacing={1}
-                    direction="row"
-                    sx={{
-                        alignItems: "center",
-                        flexWrap: 'wrap',
-                        justifyContent: "center",
-                        gap: { xs: "10px", lg: "0px" },
-                        padding: { xs: "0px 0px 10px 0px", lg: "0px 0px" }
-                    }}>
-                    <Typography variant="h5" sx={{ color: (theme) => theme.palette.primary.contrastText }} >Check Spike Premium Version</Typography>
-                    {/* <DropdownMenu/> */}
-                    <LivePreviewDropdown />
-                    <BuyNowDropdown />
-                </Stack>
-            </ToolbarStyled>
-        </AppBarStyled>)
-    );
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992) {
+        setHeight("0px");
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const { isMobileSidebar, setIsMobileSidebar } = useContext(DashboardContext);
+
+  return (
+    <AppBarStyled position="sticky">
+      <ToolbarStyled>
+        <Stack direction="row" spacing={10} alignItems="center">
+          <img
+            src="/images/logos/TFTLogo.png"
+            alt="TFT-Logo"
+            style={{ height: "35px", width: "auto" }}
+          />
+          <Stack direction="row" spacing={1} alignItems="center" sx={{ ml: 3 }}>
+            <IconButton
+              color="inherit"
+              onClick={() => setIsMobileSidebar(!isMobileSidebar)}
+              sx={{
+                display: {
+                  xl: "none",
+                  lg: "none",
+                },
+                cursor: "pointer",
+              }}
+            >
+              <Box sx={{ mt: "6px" }}>
+                <PanelLeft size={26} />
+              </Box>
+            </IconButton>
+            <IconButton color="inherit">
+              <Star size={26} />
+            </IconButton>
+            <Stack
+              direction="row"
+              spacing={1}
+              alignItems="center"
+              sx={{ flexWrap: "nowrap" }}
+            >
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#fff",
+                  fontSize: "15px",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Dashboard
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#cbd5e1" }}>
+                /
+              </Typography>
+              <Typography
+                component="span"
+                sx={{
+                  fontSize: "15px",
+                  mr: 3,
+                  color: "#BA25EE",
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Student Portal
+              </Typography>
+            </Stack>
+          </Stack>
+        </Stack>
+
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ ml: 3 }}>
+          {/* <SearchBox>
+            <Search size={24} style={{ marginRight: 8 }} />
+            <InputBase
+              placeholder="Search"
+              sx={{ color: "#fff", fontSize: "14px", width: "100%" }}
+            />
+          </SearchBox> */}
+          <IconButton color="inherit">
+            <History size={26} />
+          </IconButton>
+          <IconButton color="inherit">
+            <Bell size={26} />
+          </IconButton>
+          <Profile />
+        </Stack>
+      </ToolbarStyled>
+    </AppBarStyled>
+  );
 };
-
 
 export default Topbar;
