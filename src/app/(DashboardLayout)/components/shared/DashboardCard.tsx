@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardContent, Typography, Stack, Box } from "@mui/material";
-import { Fullscreen } from "@mui/icons-material";
 
 type Props = {
   title?: string;

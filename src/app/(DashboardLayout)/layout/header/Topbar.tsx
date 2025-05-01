@@ -3,14 +3,13 @@ import {
   Toolbar,
   styled,
   Stack,
-  InputBase,
   IconButton,
   Typography,
   Box,
 } from "@mui/material";
 import { useEffect, useState, useContext } from "react";
 import { DashboardContext } from "@/app/context/DashboardContext";
-import { PanelLeft, Star, History, Bell, Search } from "lucide-react";
+import { PanelLeft, Star, History, Bell } from "lucide-react";
 import Profile from "./Profile";
 
 const Topbar = () => {
@@ -127,13 +126,6 @@ const Topbar = () => {
         </Stack>
 
         <Stack direction="row" spacing={1} alignItems="center" sx={{ ml: 3 }}>
-          {/* <SearchBox>
-            <Search size={24} style={{ marginRight: 8 }} />
-            <InputBase
-              placeholder="Search"
-              sx={{ color: "#fff", fontSize: "14px", width: "100%" }}
-            />
-          </SearchBox> */}
           <IconButton color="inherit">
             <History size={26} />
           </IconButton>

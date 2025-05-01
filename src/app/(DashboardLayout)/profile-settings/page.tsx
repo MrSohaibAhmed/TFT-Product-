@@ -3,7 +3,6 @@ function Profile_Setting() {
     return (
         <>
             <div style={{
-                // background: 'red',
                 height: '100vh',
                 display: 'flex',
                 justifyContent: 'center',

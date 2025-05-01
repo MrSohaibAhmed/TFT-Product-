@@ -1,11 +1,7 @@
 import React from 'react'
 import Card from './Card'
 import { Box, Typography } from "@mui/material";
-import Sidebar from '../../layout/sidebar/Sidebar';
 import Side from './Sidebar';
-import TopicHeader from './TopicHeader';
-import Transcript from './Transcript';
-import VideoPlayer from './VideoPlayer';
 import MainContent from './MainContent';
 
 function CardsComponent() {

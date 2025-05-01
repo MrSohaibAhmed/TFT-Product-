@@ -1,16 +1,8 @@
 import {
   IconButton,
-  Box,
   AppBar,
-  Menu,
-  MenuItem,
-  Typography,
-  useMediaQuery,
   Toolbar,
   styled,
-  Stack,
-  Button,
-  Badge,
 } from "@mui/material";
 import { useEffect, useState, useContext } from "react";
 import { DashboardContext } from "@/app/context/DashboardContext";

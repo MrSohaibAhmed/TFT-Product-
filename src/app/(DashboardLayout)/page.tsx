@@ -1,12 +1,7 @@
 "use client";
 import { Grid2 as Grid, Box, Paper } from "@mui/material";
 import PageContainer from "@/app/(DashboardLayout)/components/container/PageContainer";
-// components
-import ProfitExpenses from "@/app/(DashboardLayout)/components/dashboard/ProgressOverview";
-import TrafficDistribution from "@/app/(DashboardLayout)/components/dashboard/CurrentCourses";
-// import UpcomingSchedules from '@/app/(DashboardLayout)/components/dashboard/UpcomingSchedules';
 import TopPayingClients from "@/app/(DashboardLayout)/components/dashboard/TopPayingClients";
-import Blog from "@/app/(DashboardLayout)/components/dashboard/Blog";
 import NoticeBoard from "./components/dashboard/NoticeBoard";
 import CurrentCourseCard from "@/app/(DashboardLayout)/components/dashboard/CurrentCourses";
 import ProgressOveriew from "@/app/(DashboardLayout)/components/dashboard/ProgressOverview";
@@ -62,16 +57,8 @@ const Dashboard = () => {
               lg: 4,
             }}
           >
-            {/* <UpcomingSchedules /> */}
           </Grid>
-          {/* <Grid
-            size={{
-              xs: 12,
-              lg: 8,
-            }}>
-            <TopPayingClients />
-          </Grid>
-           */}
+         
           <Grid
             size={{
               xs: 12,
@@ -80,9 +67,7 @@ const Dashboard = () => {
           >
             <TopPayingClients />
           </Grid>
-          {/* <Grid size={12}>
-            <Blog />
-          </Grid> */}
+         
         </Grid>
       </Box>
     </PageContainer>

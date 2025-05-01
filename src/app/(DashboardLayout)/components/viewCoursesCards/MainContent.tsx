@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import TopicHeader from "./TopicHeader";
 import VideoPlayer from "./VideoPlayer";
 import Transcript from "./Transcript";

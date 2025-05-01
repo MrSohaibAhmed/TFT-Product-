@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  Avatar,
   Box,
   Menu,
   Button,
@@ -12,7 +11,6 @@ import {
 } from "@mui/material";
 import { Icon } from "@iconify/react";
 
-import { UserRound } from "lucide-react";
 import { IconListCheck, IconMail, IconUser } from "@tabler/icons-react";
 
 const Profile = () => {
@@ -41,16 +39,7 @@ const Profile = () => {
         }}
         onClick={handleClick2}
       >
-        {/* <Avatar
-          src="/images/profile/user-1.jpg"
-          alt="image"
-          sx={{
-            width: 35,
-            height: 35,
-          }}
-        /> */}
         <Icon icon="mdi:account-circle" width="32" height="32" color="" />
-        {/* <UserRound size={26} color="white" /> */}
       </IconButton>
       {/* ------------------------------------------- */}
       {/* Message Dropdown */}
@@ -64,7 +53,6 @@ const Profile = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         sx={{
-          // backgroundColor:"#0D113B",
 
           "& .MuiMenu-paper": {
             width: "200px",
@@ -72,8 +60,6 @@ const Profile = () => {
             border: "1px solid white",
             color: "white",
           },
-          // color:"#0D113B",
-          //  backgroundColor:"#0D113B"
         }}
       >
         <MenuItem sx={{"&:hover": {
@@ -117,8 +103,6 @@ const Profile = () => {
         >
           <Button
             href="/authentication/login"
-            // variant=""
-            // color="primary"
             component={Link}
             fullWidth
             sx={{
