@@ -52,7 +52,7 @@ const CurrentCourseCard = () => {
               borderRadius: "6px",
               fontWeight: 500,
               paddingY:"15px",
-              padding:"15px"
+              paddingX:"10px"
 
             }}
           />
