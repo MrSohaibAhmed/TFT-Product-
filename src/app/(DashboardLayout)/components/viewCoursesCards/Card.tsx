@@ -12,7 +12,7 @@ function Card(props: Props) {
       <Typography sx={{ color: "white", fontWeight: "bold" }}>
         {props.title}
       </Typography>
-      <Typography sx={{ marginTop: "40px", color: "#BA25EE", fontWeight: "bold", fontSize: "15px" }}>
+      <Typography sx={{ marginTop: "40px", color:"#A78BFA", fontWeight: "bold", fontSize: "15px" }}>
         {props.contentHeading}
       </Typography>
       <Typography sx={{ color: "white" }}>

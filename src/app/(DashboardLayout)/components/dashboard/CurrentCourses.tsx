@@ -51,6 +51,9 @@ const CurrentCourseCard = () => {
               fontSize: "12px",
               borderRadius: "6px",
               fontWeight: 500,
+              paddingY:"15px",
+              padding:"15px"
+
             }}
           />
         </Stack>
@@ -121,7 +124,7 @@ const CurrentCourseCard = () => {
             >
               <Typography
                 variant="h5"
-                sx={{ fontWeight: "bold", color: "#6C63FF", fontSize: "24px" }}
+                sx={{ fontWeight: "bold", color:"#A78BFA", fontSize: "24px" }}
               >
                 {progress}%
               </Typography>

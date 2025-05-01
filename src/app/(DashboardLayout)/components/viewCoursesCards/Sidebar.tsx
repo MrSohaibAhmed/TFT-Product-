@@ -51,7 +51,7 @@ const Side = () => {
             sx={{
               borderRadius: "7px",
               padding: "7px 30px",
-              bgcolor: "#BA25EE",
+              bgcolor: "#6c63ff",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",

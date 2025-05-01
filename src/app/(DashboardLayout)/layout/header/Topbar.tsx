@@ -114,7 +114,7 @@ const Topbar = () => {
                 sx={{
                   fontSize: "15px",
                   mr: 3,
-                  color: "#BA25EE",
+                 color:"#A78BFA",
                   fontWeight: 500,
                   whiteSpace: "nowrap",
                 }}
