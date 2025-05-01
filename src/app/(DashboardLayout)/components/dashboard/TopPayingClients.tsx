@@ -63,7 +63,7 @@ const products = [
 const TopPayingClients = () => {
   return (
     <div id="table">
-      <DashboardCard title="Assignments" sx={{border:'1px solid #ba25ee'}}>
+      <DashboardCard title="Assignments">
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Input
             placeholder="Filter Lines"
