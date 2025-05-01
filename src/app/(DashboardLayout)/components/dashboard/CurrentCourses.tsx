@@ -24,12 +24,13 @@ const CurrentCourseCard = () => {
         width: 360,
         height: 300,
         backgroundColor: "#0d113b",
-        borderRadius: 2,
+        borderRadius: 1,
         px: 3,
         py: 2.5,
         color: "#fff",
         display: "flex",
         flexDirection: "column",
+        border:"solid 1px white"
       }}
     >
       <Stack
@@ -38,7 +39,7 @@ const CurrentCourseCard = () => {
       >
         {/* Top Header */}
         <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Typography variant="h6" color="black">
+          <Typography variant="h6" color="white">
             Current Courses
           </Typography>
           <Chip

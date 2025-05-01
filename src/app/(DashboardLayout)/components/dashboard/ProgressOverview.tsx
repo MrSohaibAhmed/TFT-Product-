@@ -63,12 +63,14 @@ const ProgressOveriew = () => {
         width: 360,
         height: 300,
         backgroundColor: "#0d113b",
-        borderRadius: 2,
+        borderRadius: 1,
         px: 3,
         py: 2.5,
         color: "#fff",
         display: "flex",
         flexDirection: "column",
+        border:"solid 1px white"
+
       }}
     >
       <Stack
@@ -109,7 +111,7 @@ const ProgressOveriew = () => {
         </Box>
 
         {/* Chart */}
-        <Box sx={{ flexGrow: 1 }}>
+        <Box >
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}

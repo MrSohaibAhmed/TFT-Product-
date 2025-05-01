@@ -21,11 +21,13 @@ const NoticeBoard = () => {
         margin: 'auto',
         px: 3,
         py: 2,
-        borderRadius: 2,
+        borderRadius: 1,
         backgroundColor: '#0d113b',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
+        border:"solid 1px white"
+
       }}
     >
       {/* Header */}

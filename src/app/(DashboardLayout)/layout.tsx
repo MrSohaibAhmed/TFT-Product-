@@ -21,7 +21,7 @@ const PageWrapper = styled("div")(() => ({
   flexGrow: 1,
   paddingBottom: "25px",
   flexDirection: "column",
-  backgroundColor: "#050817",
+  backgroundColor: "#0b0526",
 }));
 
 
@@ -85,4 +85,3 @@ export default function RootLayout({
     </MainWrapper>
   );
 }
-
