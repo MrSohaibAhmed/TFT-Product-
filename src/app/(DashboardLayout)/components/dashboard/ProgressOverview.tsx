@@ -102,7 +102,7 @@ const ProgressOveriew = () => {
 
         {/* Percentage */}
         <Box>
-          <Typography variant="h4" fontWeight={700} color="#8B5CF6">
+          <Typography variant="h4" fontWeight={700} color="#A78BFA">
             89%
           </Typography>
           <Typography variant="body2" color="#CBD5E1">

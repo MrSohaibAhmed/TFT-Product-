@@ -56,7 +56,7 @@ const NoticeBoard = () => {
         <CardContent>
           <Box display="flex" alignItems="center" gap={1}>
             <WarningIcon sx={{ color: '#6C63FF' }} /> {/* Set the color to match the text */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#6C63FF' }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color:"#A78BFA" }}>
               Heads up!
             </Typography>
           </Box>
@@ -71,7 +71,7 @@ const NoticeBoard = () => {
         <CardContent>
           <Box display="flex" alignItems="center" gap={1}>
             <WarningIcon sx={{ color: '#6C63FF' }} /> {/* Set the color to match the text */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#6C63FF' }}>
+            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color:"#A78BFA"   }}>
               Heads up!
             </Typography>
           </Box>

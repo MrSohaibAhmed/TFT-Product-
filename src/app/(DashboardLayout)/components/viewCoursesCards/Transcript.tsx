@@ -15,13 +15,13 @@ const Transcript = () => {
         <Typography variant="h6">
           Transcipt: Introduction to Programming
         </Typography>
-        <Button variant="contained" sx={{ color: "white", bgcolor: "#BA25EE", borderRadius: "6px", padding: "5px 30px" }}>
+        <Button variant="contained" sx={{ color: "white", bgcolor: "#6C63FF", borderRadius: "6px", padding: "5px 30px" }}>
           Transcript
         </Button>
       </Box>
       <Box mb={3}>
         <Typography variant="subtitle1" fontWeight="bold">
-          👋 Welcome & Introduction
+          Welcome & Introduction
         </Typography>
         <Typography variant="body2" mt={1}>
           Hi, and welcome to Programming Fundamentals! I'm super excited to take you on this journey...
@@ -30,7 +30,7 @@ const Transcript = () => {
 
       <Box>
         <Typography variant="subtitle1" fontWeight="bold">
-          ❓ What is Programming?
+          What is Programming?
         </Typography>
         <Typography variant="body2" mt={1}>
           Programming is giving instructions to a computer to perform tasks. These instructions are written in code...

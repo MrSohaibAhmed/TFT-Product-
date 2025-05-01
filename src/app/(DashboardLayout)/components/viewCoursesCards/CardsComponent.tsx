@@ -8,13 +8,13 @@ function CardsComponent() {
   return (
     <>
     <Box sx={{display:"flex",flexWrap:"wrap", gap:"15px", height: "100%"}}>
-      <Card title="Lessons" contentHeading="Programming Basics" content='HTML,CSS,JS'/>
+      <Card title="Lessons"  contentHeading="Programming Basics" content='HTML,CSS,JS'/>
       <Card title="Quizzes"/>
       <Card title="Assignments"/>
       <Card title="Discussions"/>
     </Box>
-    <Box sx={{marginTop:"20px"}}>
-      <Typography sx={{ fontSize:"30px", fontWeight:"bold", color:"#BA25EE"}}>Programming Basics</Typography>
+    <Box sx={{marginTop:"60px"}}>
+      <Typography sx={{ fontSize:"30px", fontWeight:"bold", color:"#A78BFA"}}>Programming Basics</Typography>
       <Box sx={{display:"flex", gap:"15px", height: "100%" , marginTop:"20px"}}>
       <Side />
       <MainContent />
