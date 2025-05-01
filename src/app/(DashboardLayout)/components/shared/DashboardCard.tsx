@@ -26,7 +26,7 @@ const DashboardCard = ({
   middlecontent,
 }: Props) => {
   return (
-    (<Card sx={{ padding: 0 ,backgroundColor:'#0D113B', color:'white',display:"flex", flexDirection:'column',width:'full' }} elevation={9} variant={undefined}>
+    (<Card sx={{ padding: 0 ,backgroundColor:'#0D113B', color:'white',display:"flex", flexDirection:'column',width:'full',border:'1px solid white',borderRadius:'5px' }} elevation={9} variant={undefined}>
       {cardheading ? (
         <CardContent>
           <Typography variant="h5">{headtitle}</Typography>

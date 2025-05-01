@@ -14,6 +14,7 @@ import {
   Paper,
   MenuProps,
   PaperProps,
+  backdropClasses,
 } from "@mui/material";
 import DashboardCard from "@/app/(DashboardLayout)//components/shared/DashboardCard";
 import TableContainer from "@mui/material/TableContainer";
@@ -62,7 +63,7 @@ const products = [
 const TopPayingClients = () => {
   return (
     <div id="table">
-      <DashboardCard title="Assignments">
+      <DashboardCard title="Assignments" sx={{border:'1px solid #ba25ee'}}>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Input
             placeholder="Filter Lines"
@@ -82,6 +83,7 @@ const TopPayingClients = () => {
               width: "120px",
               borderRadius: "5px",
               padding: "5px",
+              paddingLeft: "20px",
               color: "white",
               backgroundColor: "#ba25ee",
             }}
