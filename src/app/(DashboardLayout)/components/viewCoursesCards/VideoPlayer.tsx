@@ -19,7 +19,6 @@ const VideoPlayer = () => {
       sx={{
         position: "relative",
         width: "100%",
-        // maxWidth: "600px",
         mx: "auto",
         mb: 6,
         borderRadius: 2,
@@ -30,7 +29,6 @@ const VideoPlayer = () => {
         component="video"
         ref={videoRef}
         controls
-        // poster="/teacher-placeholder.jpg" 
         sx={{
           width: "100%",
           objectFit: "cover",
