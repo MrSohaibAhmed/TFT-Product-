@@ -96,6 +96,8 @@ const ProgressOveriew = () => {
               borderRadius: "6px",
               fontWeight: 500,
               height: "24px",
+              paddingY:"15px",
+              paddingX:"10px"
             }}
           />
         </Stack>
