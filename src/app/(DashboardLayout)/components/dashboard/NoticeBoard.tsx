@@ -47,6 +47,8 @@ const NoticeBoard = () => {
               fontSize: "12px",
               borderRadius: "6px",
               fontWeight: 500,
+              paddingY:"15px",
+              paddingX:"10px"
             }}
           />
       </Box>
