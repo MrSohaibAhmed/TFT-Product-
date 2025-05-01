@@ -10,7 +10,10 @@ import {
   Chip,
   Select,
   MenuItem,
- 
+  Paper,
+  MenuProps,
+  PaperProps,
+  backdropClasses,
 } from "@mui/material";
 import DashboardCard from "@/app/(DashboardLayout)//components/shared/DashboardCard";
 
@@ -76,6 +79,7 @@ const TopPayingClients = () => {
               width: "120px",
               borderRadius: "5px",
               padding: "5px",
+              paddingLeft: "20px",
               color: "white",
               backgroundColor: "#6c63ff",
             }}

@@ -3,7 +3,7 @@ import TopPayingClients from '@/app/(DashboardLayout)/components/dashboard/TopPa
 
 function TableExample() {
     return (
-        <div><TopPayingClients /></div>
+        <div style={{border:'2px solid red' , backgroundColor:'red'}}><TopPayingClients /></div>
     )
 }
 
