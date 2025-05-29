@@ -1,18 +1,10 @@
-// components/column.tsx
-"use client";
-
 import React from "react";
 import { useDroppable } from "@dnd-kit/core";
 import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import KanbanTask from "./task";
 
 interface Task {
@@ -21,14 +13,13 @@ interface Task {
   course: string;
   dueDate: string;
   description: string;
-  status: string;
+  status: "todo" | "in_progress" | "completed" | "locked";
 }
 
 interface KanbanColumnProps {
   id: string;
   title: string;
   tasks: Task[];
-  lockedTaskIds?: string[];
   onTaskClick: (task: Task) => void;
 }
 
@@ -36,7 +27,6 @@ export default function KanbanColumn({
   id,
   title,
   tasks,
-  lockedTaskIds = [],
   onTaskClick,
 }: KanbanColumnProps) {
   const { setNodeRef } = useDroppable({ id });
@@ -58,15 +48,13 @@ export default function KanbanColumn({
             strategy={verticalListSortingStrategy}
           >
             {tasks.map((task) => {
-              const isLocked = lockedTaskIds.includes(task.id);
+              const locked = task.status === "locked";
               return (
                 <KanbanTask
                   key={task.id}
                   task={task}
-                  disabled={isLocked}
-                  onClick={() => {
-                    if (!isLocked) onTaskClick(task);
-                  }}
+                  locked={locked}
+                  onClick={() => !locked && onTaskClick(task)}
                 />
               );
             })}
@@ -76,3 +64,5 @@ export default function KanbanColumn({
     </Card>
   );
 }
+
+ 
