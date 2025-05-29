@@ -1,4 +1,10 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,7 +20,8 @@ const assignments = [
     courseCode: "ENG104",
     dueDate: "2025-04-10",
     status: "upcoming",
-    description: "Draft of research paper on a selected literary work (minimum 5 pages)",
+    description:
+      "Draft of research paper on a selected literary work (minimum 5 pages)",
     grade: null,
   },
   {
@@ -24,7 +31,8 @@ const assignments = [
     courseCode: "MATH202",
     dueDate: "2025-04-12",
     status: "upcoming",
-    description: "Solve problems related to multivariable calculus (15 problems)",
+    description:
+      "Solve problems related to multivariable calculus (15 problems)",
     grade: null,
   },
   {
@@ -34,7 +42,8 @@ const assignments = [
     courseCode: "PHY303",
     dueDate: "2025-04-15",
     status: "upcoming",
-    description: "Report on the double-slit experiment simulation (include data and analysis)",
+    description:
+      "Report on the double-slit experiment simulation (include data and analysis)",
     grade: null,
   },
   {
@@ -44,7 +53,8 @@ const assignments = [
     courseCode: "CS101",
     dueDate: "2025-04-18",
     status: "upcoming",
-    description: "Analyze the provided case study on ethical implications of AI",
+    description:
+      "Analyze the provided case study on ethical implications of AI",
     grade: null,
   },
   {
@@ -84,15 +94,20 @@ const assignments = [
     courseCode: "ART106",
     dueDate: "2025-03-10",
     status: "completed",
-    description: "Proposal for final design project including concept and timeline",
+    description:
+      "Proposal for final design project including concept and timeline",
     grade: 95,
   },
 ];
 
 export default function AssignmentsPage() {
-  const upcomingAssignments = assignments.filter((a) => a.status === "upcoming");
-  const completedAssignments = assignments.filter((a) => a.status === "completed");
-  
+  const upcomingAssignments = assignments.filter(
+    (a) => a.status === "upcoming"
+  );
+  const completedAssignments = assignments.filter(
+    (a) => a.status === "completed"
+  );
+
   return (
     <div className="flex flex-col space-y-6">
       <div>
@@ -101,7 +116,7 @@ export default function AssignmentsPage() {
           Track and manage your course assignments.
         </p>
       </div>
-      
+
       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
         <div className="relative w-full sm:w-64">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -120,7 +135,7 @@ export default function AssignmentsPage() {
           Calendar View
         </Button>
       </div>
-      
+
       <Tabs defaultValue="upcoming" className="space-y-4">
         <TabsList>
           <TabsTrigger value="upcoming">
@@ -137,19 +152,19 @@ export default function AssignmentsPage() {
           </TabsTrigger>
           <TabsTrigger value="all">All</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="upcoming" className="space-y-4">
           {upcomingAssignments.map((assignment) => (
             <AssignmentCard key={assignment.id} assignment={assignment} />
           ))}
         </TabsContent>
-        
+
         <TabsContent value="completed" className="space-y-4">
           {completedAssignments.map((assignment) => (
             <AssignmentCard key={assignment.id} assignment={assignment} />
           ))}
         </TabsContent>
-        
+
         <TabsContent value="all" className="space-y-4">
           {assignments.map((assignment) => (
             <AssignmentCard key={assignment.id} assignment={assignment} />
@@ -179,13 +194,15 @@ function AssignmentCard({ assignment }: { assignment: Assignment }) {
     day: "numeric",
     year: "numeric",
   });
-  
+
   return (
     <Card className="transition-all hover:shadow-md">
       <CardHeader className="p-4 pb-2">
         <div className="flex items-start justify-between">
           <div>
-            <Badge variant="outline" className="mb-2">{assignment.courseCode}</Badge>
+            <Badge variant="outline" className="mb-2">
+              {assignment.courseCode}
+            </Badge>
             <CardTitle className="text-lg">{assignment.title}</CardTitle>
             <CardDescription>{assignment.course}</CardDescription>
           </div>
